@@ -23,7 +23,7 @@ EOF
 ### AWS policy ARN for existing service role
 
 #data "aws_iam_policy" "codedeploy_service_policy" {
-  #arn = "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole"
+#arn = "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole"
 #  arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
 #}
 
@@ -31,8 +31,8 @@ EOF
 ### Policy attachment
 
 resource "aws_iam_role_policy_attachment" "eks_policy_a" {
-  count      = "${length(var.iam_policy_arn)}"
-  role       = aws_iam_role.eks_role.name
+  count = length(var.iam_policy_arn)
+  role  = aws_iam_role.eks_role.name
   #policy_arn = data.aws_iam_policy.codedeploy_service_policy.arn
-  policy_arn = "${var.iam_policy_arn[count.index]}"
+  policy_arn = var.iam_policy_arn[count.index]
 }
