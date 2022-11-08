@@ -4,6 +4,8 @@ module "eks" {
 
   cluster_name    = "aleksejs-cluster"
   cluster_version = "1.22"
+  create_iam_role = false
+  iam_role_arn = aws_iam_role.eks_role.arn
 
   vpc_id     = aws_vpc.main.id
   subnet_ids = [for subnet in aws_subnet.main-public-1 : subnet.id]
