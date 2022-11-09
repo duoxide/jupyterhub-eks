@@ -3,7 +3,7 @@ module "eks" {
   version = "18.26.6"
 
   cluster_name    = "aleksejs-cluster"
-  cluster_version = "1.22"
+  cluster_version = "1.23"
   create_iam_role = false
   iam_role_arn = aws_iam_role.eks_role.arn
 

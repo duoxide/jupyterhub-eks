@@ -13,6 +13,14 @@ output "cluster_security_group_id" {
   value       = module.eks.cluster_security_group_id
 }
 
+output "region" {
+  value = var.region
+}
+
+output "cluster_name" {
+  value = "aleksejs-cluster"
+}
+
 /* output "lb_ip" {
   value = kubernetes_service.nginx.status.0.load_balancer.0.ingress.0.hostname
 } */
