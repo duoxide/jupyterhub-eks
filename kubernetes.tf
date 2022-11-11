@@ -31,7 +31,7 @@ provider "kubernetes" {
   }
 }
 
- resource "kubernetes_service" "nginx" {
+/*  resource "kubernetes_service" "nginx" {
   metadata {
     name = "nginx-example"
   }
@@ -46,4 +46,4 @@ provider "kubernetes" {
 
     type = "LoadBalancer"
   }
-}
+} */
