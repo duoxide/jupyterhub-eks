@@ -30,9 +30,13 @@ imagePullSecrets: []
 hub:
   revisionHistoryLimit:
   config:
+    GitHubOAuthenticator:
+      client_id: 477db460e2f99f16ad24
+      client_secret: 51e7a084a68183f3112bb7a28e9e159f3048d0df
+      oauth_callback_url: http://jh.dioxide.id.lv/hub/oauth_callback
     JupyterHub:
       admin_access: true
-      authenticator_class: dummy
+      authenticator_class: github
   service:
     type: ClusterIP
     annotations: {}
