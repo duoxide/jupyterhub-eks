@@ -1,11 +1,22 @@
 # Helm provider installs in Kubernetes cluster
 
 provider "helm" {
-
   kubernetes {
     host                   = data.aws_eks_cluster.cluster.endpoint
-    token                  = data.aws_eks_cluster_auth.cluster.token
     cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
-    #load_config_file       = false
+    exec {
+      api_version = "client.authentication.k8s.io/v1beta1"
+      args        = ["eks", "get-token", "--cluster-name", data.aws_eks_cluster.cluster.name]
+      command     = "aws"
+    }
   }
+}
+
+resource "helm_release" "jupyterhub" {
+  name       = "jupyterhub-deploy"
+  chart      = "https://jupyterhub.github.io/helm-chart/jupyterhub-2.0.1-0.dev.git.5888.hae5e3d2f.tgz"
+  depends_on = [module.eks]
+  values = [
+    "${file("values.yaml")}"
+  ]
 }

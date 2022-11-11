@@ -1,12 +1,10 @@
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
-  version = "18.26.6"
+  version = "18.30.3"
 
   cluster_name    = "aleksejs-cluster"
   cluster_version = "1.23"
-  create_iam_role = false
-  iam_role_arn = aws_iam_role.eks_role.arn
-
+  
   vpc_id     = aws_vpc.main.id
   subnet_ids = [for subnet in aws_subnet.main-public-1 : subnet.id]
   
@@ -23,11 +21,11 @@ module "eks" {
     one = {
       name = "allow-ssh"
 
-      instance_types = ["t2.micro"]
+      instance_types = ["t2.medium"]
 
       min_size     = 1
       max_size     = 3
-      desired_size = 2
+      desired_size = 1
 
       pre_bootstrap_user_data = <<-EOT
       echo 'foo bar'
@@ -56,4 +54,11 @@ module "eks" {
       ]
     } */
   }
+}
+
+module "ebs-csi-driver" {
+  source  = "DrFaust92/ebs-csi-driver/kubernetes"
+  version = "3.3.1"
+  oidc_url = module.eks.cluster_oidc_issuer_url
+  depends_on = [module.eks]
 }
