@@ -1,9 +1,3 @@
-data "kubernetes_service" "lb_dns" {
-  metadata {
-    name = "proxy-public"
-  }
-}
-
 data "aws_elb_hosted_zone_id" "main" {}
 
 resource "aws_route53_zone" "aleksejs" {

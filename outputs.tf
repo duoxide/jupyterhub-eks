@@ -21,9 +21,9 @@ output "cluster_name" {
   value = "aleksejs-cluster"
 }
 
-/* output "elb_dns" {
+output "elb_dns" {
     value = data.kubernetes_service.lb_dns.status[0].load_balancer[0].ingress[0].hostname
-} */
+}
 
 output "elb_zid" {
     value = data.aws_elb_hosted_zone_id.main.id

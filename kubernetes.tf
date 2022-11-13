@@ -31,6 +31,13 @@ provider "kubernetes" {
   }
 }
 
+data "kubernetes_service" "lb_dns" {
+  metadata {
+    name = "proxy-public"
+  }
+  depends_on = [helm_release.jupyterhub, module.eks]
+}
+
 /*  resource "kubernetes_service" "nginx" {
   metadata {
     name = "nginx-example"
