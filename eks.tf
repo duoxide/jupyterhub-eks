@@ -10,7 +10,7 @@ module "eks" {
   
    eks_managed_node_group_defaults = {
     ami_type = "AL2_x86_64"
-
+    
     attach_cluster_primary_security_group = false
 
     # Disabling and using externally provided security groups
@@ -20,13 +20,15 @@ module "eks" {
   eks_managed_node_groups = {
     one = {
       name = "allow-ssh"
-
+      # taints = []
       instance_types = ["t2.medium"]
 
       min_size     = 1
       max_size     = 3
       desired_size = 1
-
+      labels = {
+        "meh" = "meh"
+      }
       pre_bootstrap_user_data = <<-EOT
       echo 'foo bar'
       EOT
@@ -34,6 +36,11 @@ module "eks" {
       vpc_security_group_ids = [
         aws_security_group.allow-ssh.id
       ]
+      tags = {
+        "k8s.io/cluster-autoscaler/aleksejs-cluster" = "true",
+        "k8s.io/cluster-autoscaler/enabled" = "true",
+        "k8s.io/cluster-autoscaler/node-template/label/meh" = "meh"
+      }
     }
 
     /* two = {

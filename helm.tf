@@ -20,3 +20,12 @@ resource "helm_release" "jupyterhub" {
     "${file("values.yaml")}"
   ]
 }
+
+resource "helm_release" "ca" {
+  name       = "ca-deploy"
+  chart      = "https://github.com/kubernetes/autoscaler/releases/download/cluster-autoscaler-chart-9.21.0/cluster-autoscaler-9.21.0.tgz"
+  depends_on = [module.eks, module.ebs-csi-driver, helm_release.jupyterhub]
+  values = [
+    "${file("ca.yaml")}"
+  ]
+}
