@@ -15,8 +15,17 @@ provider "helm" {
 resource "helm_release" "jupyterhub" {
   name       = "jupyterhub-deploy"
   chart      = "https://jupyterhub.github.io/helm-chart/jupyterhub-2.0.1-0.dev.git.5888.hae5e3d2f.tgz"
-  depends_on = [module.eks]
+  depends_on = [module.eks, module.ebs-csi-driver]
   values = [
     "${file("values.yaml")}"
+  ]
+}
+
+resource "helm_release" "ca" {
+  name       = "ca-deploy"
+  chart      = "https://github.com/kubernetes/autoscaler/releases/download/cluster-autoscaler-chart-9.21.0/cluster-autoscaler-9.21.0.tgz"
+  depends_on = [module.eks, module.ebs-csi-driver, helm_release.jupyterhub]
+  values = [
+    "${file("ca.yaml")}"
   ]
 }
