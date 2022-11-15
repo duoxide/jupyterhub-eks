@@ -1,7 +1,7 @@
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "18.30.3"
-  
+
   cluster_name    = "aleksejs-cluster"
   cluster_version = "1.23"
   
@@ -21,6 +21,7 @@ module "eks" {
     one = {
       name = "allow-ssh"
       # taints = []
+
       instance_types = ["t2.medium"]
 
       min_size     = 1
