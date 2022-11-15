@@ -58,13 +58,13 @@ autoscalingGroupsnamePrefix: []
 #   minSize: 0
 
 # awsAccessKeyID -- AWS access key ID ([if AWS user keys used](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md#using-aws-credentials))
-awsAccessKeyID: "AKIARSTELIM7VEXFZ2UQ"
+awsAccessKeyID: ""
 
 # awsRegion -- AWS region (required if `cloudProvider=aws`)
 awsRegion: eu-central-1
 
 # awsSecretAccessKey -- AWS access secret key ([if AWS user keys used](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md#using-aws-credentials))
-awsSecretAccessKey: "vvLdFp+zqWfE9sBcGAgZiPyTf3c3AKRTdi06L4xv"
+awsSecretAccessKey: ""
 
 # azureClientID -- Service Principal ClientID with contributor permission to Cluster and Node ResourceGroup.
 # Required if `cloudProvider=azure`
