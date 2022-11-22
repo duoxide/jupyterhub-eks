@@ -33,7 +33,7 @@ hub:
     GitHubOAuthenticator:
       client_id:
       client_secret:
-      oauth_callback_url: https://${host}/hub/oauth_callback
+      oauth_callback_url: http://${host}/hub/oauth_callback
     JupyterHub:
       admin_access: true
       authenticator_class: github
