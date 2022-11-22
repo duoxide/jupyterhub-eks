@@ -20,7 +20,7 @@ resource "helm_release" "jupyterhub" {
     "${file("https.yaml")}"
   ] */
   values = [
-    templatefile("https.yaml", { host = "${var.a_record}" })
+    templatefile("http.yaml", { host = "${var.a_record}" })
   ]
 }
 
