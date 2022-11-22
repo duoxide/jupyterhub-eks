@@ -14,7 +14,7 @@
 
 * Domain name 
 
-* Certification key and certificate (Ex. from [Let's encrypt](https://letsencrypt.org/) 
+* Certification key and certificate (Ex. from [Let's encrypt](https://letsencrypt.org/)) 
  
 ## How to:
 
@@ -22,7 +22,7 @@
 
 2. If you need encrypted version, do third step, if not – ommit
 
-3. Obtain tls/ssl certificate (Ex. from [Let's encrypt](https://letsencrypt.org/)
+3. Obtain tls/ssl certificate (Ex. from [Let's encrypt](https://letsencrypt.org/))
 
 4. Register your domain name with [Route 53](https://aws.amazon.com/route53/) DNS service at AWS
 
