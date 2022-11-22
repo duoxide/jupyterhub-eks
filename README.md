@@ -1,5 +1,6 @@
-# What is this? 
-# Jupyterhub deployment with GitHub authentication via Helm chart on EKS cluster, automated by Terraform. Route 53 used as DNS server and TLS/SSL certificates received from [Let's encrypt] (https://letsencrypt.org/) 
+# What is this?
+ 
+### Jupyterhub deployment with GitHub authentication via Helm chart on EKS cluster, automated by Terraform. Route 53 used as DNS server and TLS/SSL certificates received from [Let's encrypt] (https://letsencrypt.org/) 
 
 ## Prerequisites 
 
@@ -13,7 +14,7 @@
 
 * Domain name 
 
-* Certification key and certificate (Ex. from [Let's encrypt] (https://letsencrypt.org/)) 
+* Certification key and certificate (Ex. from [Let's encrypt] (https://letsencrypt.org/) 
  
 
 ## How to: 
@@ -22,7 +23,7 @@
 
 2. If you need encrypted version, do third step, if not – ommit. 
 
-    3. Obtain tls/ssl certificate (Ex. from [Let's encrypt] (https://letsencrypt.org/)>) 
+3. Obtain tls/ssl certificate (Ex. from [Let's encrypt] (https://letsencrypt.org/) 
 
 4. Register your domain name with Route 53 DNS service at AWS. 
 
