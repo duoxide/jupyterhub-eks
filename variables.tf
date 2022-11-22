@@ -19,3 +19,27 @@ variable "region" {
   type        = string
   default     = "eu-central-1"
 }
+
+variable "hosted_zone" {
+  description = "Hosted zone for Route53"
+  type        = string
+  default     = "dioxide.id.lv"
+}
+
+variable "a_record" {
+  description = "A record for jupyterhub access in Route53"
+  type        = string
+  default     = "jh.dioxide.id.lv"
+}
+
+variable "txt_record" {
+  description = "TXT record for DNS challenge in Route53"
+  type        = string
+  default     = "_acme-challenge.jh.dioxide.id.lv"
+}
+
+variable "txt_record_value" {
+  description = "TXT record value for DNS challenge in Route53"
+  type        = string
+  default     = "uPYDTuKs93ucONhEY_1nPGreMu74ilQn8nhWgSZ_XQY"
+}

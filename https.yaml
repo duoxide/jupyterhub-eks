@@ -31,8 +31,8 @@ hub:
   revisionHistoryLimit:
   config:
     GitHubOAuthenticator:
-      client_id: 
-      client_secret: 
+      client_id:
+      client_secret:
       oauth_callback_url: https://jh.dioxide.id.lv/hub/oauth_callback
     JupyterHub:
       admin_access: true

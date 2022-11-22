@@ -23,6 +23,7 @@ module "eks" {
       # taints = []
 
       instance_types = ["t2.medium"]
+      subnet_ids     = [aws_subnet.main-public-1[0].id]
 
       min_size     = 1
       max_size     = 3

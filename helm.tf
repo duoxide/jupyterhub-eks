@@ -17,7 +17,7 @@ resource "helm_release" "jupyterhub" {
   chart      = "https://jupyterhub.github.io/helm-chart/jupyterhub-2.0.1-0.dev.git.5888.hae5e3d2f.tgz"
   depends_on = [module.eks, module.ebs-csi-driver, aws_internet_gateway.main-gw, kubernetes_secret.jh]
   values = [
-    "${file("values.yaml")}"
+    "${file("https.yaml")}"
   ]
 }
 
