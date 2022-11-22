@@ -16,8 +16,11 @@ resource "helm_release" "jupyterhub" {
   name       = "jupyterhub-deploy"
   chart      = "https://jupyterhub.github.io/helm-chart/jupyterhub-2.0.1-0.dev.git.5888.hae5e3d2f.tgz"
   depends_on = [module.eks, module.ebs-csi-driver, aws_internet_gateway.main-gw, kubernetes_secret.jh]
-  values = [
+  /* values = [
     "${file("https.yaml")}"
+  ] */
+  values = [
+    templatefile("https.yaml", { host = "${var.a_record}" })
   ]
 }
 
@@ -25,7 +28,10 @@ resource "helm_release" "ca" {
   name       = "ca-deploy"
   chart      = "https://github.com/kubernetes/autoscaler/releases/download/cluster-autoscaler-chart-9.21.0/cluster-autoscaler-9.21.0.tgz"
   depends_on = [module.eks, module.ebs-csi-driver, helm_release.jupyterhub]
-  values = [
+  /* values = [
     "${file("ca.yaml")}"
+  ] */
+  values = [
+    templatefile("ca.yaml", { cl_name = "${var.cluster_name}" })
   ]
 }

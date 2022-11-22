@@ -1,8 +1,3 @@
-variable "iam_policy_arn" {
-  default = ["arn:aws:iam::aws:policy/AmazonEKSClusterPolicy", "arn:aws:iam::aws:policy/AmazonEKSServicePolicy", "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"]
-  type    = list(string)
-}
-
 variable "availability_zones" {
   description = "Availability zones in this region to use"
   default     = ["eu-central-1a", "eu-central-1b"]
@@ -42,4 +37,10 @@ variable "txt_record_value" {
   description = "TXT record value for DNS challenge in Route53"
   type        = string
   default     = "uPYDTuKs93ucONhEY_1nPGreMu74ilQn8nhWgSZ_XQY"
+}
+
+variable "cluster_name" {
+  description = "Name of the cluster"
+  type        = string
+  default     = "aleksejs-cluster"
 }

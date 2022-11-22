@@ -2,7 +2,7 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "18.30.3"
 
-  cluster_name    = "aleksejs-cluster"
+  cluster_name    = var.cluster_name
   cluster_version = "1.23"
 
   vpc_id     = aws_vpc.main.id
@@ -19,14 +19,14 @@ module "eks" {
 
   eks_managed_node_groups = {
     one = {
-      name = "allow-ssh"
+      name = "main-group"
       # taints = []
 
       instance_types = ["t2.medium"]
       subnet_ids     = [aws_subnet.main-public-1[0].id]
 
       min_size     = 1
-      max_size     = 3
+      max_size     = 10
       desired_size = 1
       labels = {
         "meh" = "meh"

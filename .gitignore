@@ -1,7 +1,10 @@
-.terraform/
-cert/
+http/.terraform/
+https/.terraform/
+https/cert/
 
-.terraform.lock.hcl
-terraform.tfstate
-terraform.tfstate.backup
-get_helm.sh
+http/.terraform.lock.hcl
+https/.terraform.lock.hcl
+http/terraform.tfstate
+https/terraform.tfstate
+http/terraform.tfstate.backup
+https/terraform.tfstate.backup
