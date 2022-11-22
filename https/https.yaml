@@ -31,8 +31,8 @@ hub:
   revisionHistoryLimit:
   config:
     GitHubOAuthenticator:
-      client_id: 6e0a0051d0827260abb2
-      client_secret: e5b3ad2959ac14e5053781e4d7b07f56379fb0ff
+      client_id:
+      client_secret:
       oauth_callback_url: https://${host}/hub/oauth_callback
     JupyterHub:
       admin_access: true
