@@ -22,17 +22,17 @@ output "cluster_name" {
 }
 
 output "elb_dns" {
-    value = data.kubernetes_service.lb_dns.status[0].load_balancer[0].ingress[0].hostname
+  value = data.kubernetes_service.lb_dns.status[0].load_balancer[0].ingress[0].hostname
 }
 
 output "elb_zid" {
-    value = data.aws_elb_hosted_zone_id.main.id
+  value = data.aws_elb_hosted_zone_id.main.id
 }
 
 output "zone_rec" {
-    value = aws_route53_zone.aleksejs.name_servers
+  value = aws_route53_zone.aleksejs.name_servers
 }
 
 output "zone_id" {
-    value = aws_route53_zone.aleksejs.zone_id
+  value = aws_route53_zone.aleksejs.zone_id
 }

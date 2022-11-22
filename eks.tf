@@ -4,13 +4,13 @@ module "eks" {
 
   cluster_name    = "aleksejs-cluster"
   cluster_version = "1.23"
-  
+
   vpc_id     = aws_vpc.main.id
   subnet_ids = [for subnet in aws_subnet.main-public-1 : subnet.id]
-  
-   eks_managed_node_group_defaults = {
+
+  eks_managed_node_group_defaults = {
     ami_type = "AL2_x86_64"
-    
+
     attach_cluster_primary_security_group = false
 
     # Disabling and using externally provided security groups
@@ -23,6 +23,7 @@ module "eks" {
       # taints = []
 
       instance_types = ["t2.medium"]
+      subnet_ids     = [aws_subnet.main-public-1[0].id]
 
       min_size     = 1
       max_size     = 3
@@ -38,8 +39,8 @@ module "eks" {
         aws_security_group.allow-ssh.id
       ]
       tags = {
-        "k8s.io/cluster-autoscaler/aleksejs-cluster" = "true",
-        "k8s.io/cluster-autoscaler/enabled" = "true",
+        "k8s.io/cluster-autoscaler/aleksejs-cluster"        = "true",
+        "k8s.io/cluster-autoscaler/enabled"                 = "true",
         "k8s.io/cluster-autoscaler/node-template/label/meh" = "meh"
       }
     }
@@ -65,8 +66,8 @@ module "eks" {
 }
 
 module "ebs-csi-driver" {
-  source  = "DrFaust92/ebs-csi-driver/kubernetes"
-  version = "3.3.1"
-  oidc_url = module.eks.cluster_oidc_issuer_url
+  source     = "DrFaust92/ebs-csi-driver/kubernetes"
+  version    = "3.3.1"
+  oidc_url   = module.eks.cluster_oidc_issuer_url
   depends_on = [module.eks]
 }

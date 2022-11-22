@@ -31,9 +31,9 @@ hub:
   revisionHistoryLimit:
   config:
     GitHubOAuthenticator:
-      client_id: 
-      client_secret: 
-      oauth_callback_url: http://jh.dioxide.id.lv/hub/oauth_callback
+      client_id:
+      client_secret:
+      oauth_callback_url: https://jh.dioxide.id.lv/hub/oauth_callback
     JupyterHub:
       admin_access: true
       authenticator_class: github
@@ -306,8 +306,8 @@ proxy:
     resources: {}
   labels: {}
   https:
-    enabled: false
-    type: letsencrypt
+    enabled: true
+    type: secret
     #type: letsencrypt, manual, offload, secret
     letsencrypt:
       contactEmail:
@@ -317,10 +317,11 @@ proxy:
       key:
       cert:
     secret:
-      name:
+      name: jh-tls
       key: tls.key
       crt: tls.crt
-    hosts: []
+    hosts:
+      - jh.dioxide.id.lv
 
 # singleuser relates to the configuration of KubeSpawner which runs in the hub
 # pod, and its spawning of user pods such as jupyter-myusername.
