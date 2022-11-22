@@ -33,7 +33,7 @@ hub:
     GitHubOAuthenticator:
       client_id:
       client_secret:
-      oauth_callback_url: https://jh.dioxide.id.lv/hub/oauth_callback
+      oauth_callback_url: https://${host}/hub/oauth_callback
     JupyterHub:
       admin_access: true
       authenticator_class: github
@@ -321,7 +321,7 @@ proxy:
       key: tls.key
       crt: tls.crt
     hosts:
-      - jh.dioxide.id.lv
+      - "${host}"
 
 # singleuser relates to the configuration of KubeSpawner which runs in the hub
 # pod, and its spawning of user pods such as jupyter-myusername.
