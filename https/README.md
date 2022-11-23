@@ -1,12 +1,13 @@
-Prerequisite
+## How to:
 
-AWS CLI version  2.0 and higher
+1. Clone the repository
 
----------------
+2. `cd ./jupyterhub-eks/https`
 
-TO DO :
+3. Go through the `variables.tf` file and change everything according to your needs
 
-1. Route 53 (default port for DNS) DNS server. Register your DNS name here, can use existant. Create domain name. Read about DNS.
-3. https certificate letsencrypt.com
-4. github registration
-5. fix deployment
+4. `terraform init`
+
+5. `terraform plan`, enter required credentials when prompted
+
+6. `terraform apply`, enter required credentials when prompted
