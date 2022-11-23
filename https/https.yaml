@@ -31,8 +31,8 @@ hub:
   revisionHistoryLimit:
   config:
     GitHubOAuthenticator:
-      client_id:
-      client_secret:
+      client_id: ${git_id}
+      client_secret: ${git_secret}
       oauth_callback_url: https://${host}/hub/oauth_callback
     JupyterHub:
       admin_access: true
@@ -321,7 +321,7 @@ proxy:
       key: tls.key
       crt: tls.crt
     hosts:
-      - "${host}"
+      - ${host}
 
 # singleuser relates to the configuration of KubeSpawner which runs in the hub
 # pod, and its spawning of user pods such as jupyter-myusername.
