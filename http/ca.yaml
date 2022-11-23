@@ -13,7 +13,7 @@ autoDiscovery:
   # Enable autodiscovery for `cloudProvider=clusterapi`, for groups matching `autoDiscovery.labels`.
   # Enable autodiscovery for `cloudProvider=gce`, but no MIG tagging required.
   # Enable autodiscovery for `cloudProvider=magnum`, for groups matching `autoDiscovery.roles`.
-  clusterName: "${cl_name}" # cluster.local
+  clusterName: ${cl_name} # cluster.local
 
   # autoDiscovery.tags -- ASG tags to match, run through `tpl`.
   tags:
@@ -58,13 +58,13 @@ autoscalingGroupsnamePrefix: []
 #   minSize: 0
 
 # awsAccessKeyID -- AWS access key ID ([if AWS user keys used](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md#using-aws-credentials))
-awsAccessKeyID: ""
+awsAccessKeyID: "${aws_ak_id}"
 
 # awsRegion -- AWS region (required if `cloudProvider=aws`)
 awsRegion: eu-central-1
 
 # awsSecretAccessKey -- AWS access secret key ([if AWS user keys used](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md#using-aws-credentials))
-awsSecretAccessKey: ""
+awsSecretAccessKey: "${aws_ak_secret}"
 
 # azureClientID -- Service Principal ClientID with contributor permission to Cluster and Node ResourceGroup.
 # Required if `cloudProvider=azure`

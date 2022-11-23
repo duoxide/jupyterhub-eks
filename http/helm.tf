@@ -20,7 +20,7 @@ resource "helm_release" "jupyterhub" {
     "${file("https.yaml")}"
   ] */
   values = [
-    templatefile("http.yaml", { host = "${var.a_record}" })
+    templatefile("http.yaml", { host = "${var.a_record}", git_id = "${var.git_id}", git_secret = "${var.git_secret}" })
   ]
 }
 
@@ -32,6 +32,6 @@ resource "helm_release" "ca" {
     "${file("ca.yaml")}"
   ] */
   values = [
-    templatefile("ca.yaml", { cl_name = "${var.cluster_name}" })
+    templatefile("ca.yaml", { cl_name = "${var.cluster_name}", aws_ak_id = "${var.aws_ak_id}", aws_ak_secret = "${var.aws_ak_secret}" })
   ]
 }

@@ -11,17 +11,17 @@ Jupyterhub deployment with GitHub authentication via Terraform using Helm on EKS
 
 ## Prerequisites 
 
-* AWS account with admin rights and issued AWS Access keypair
+* AWS account with admin rights and issued AWS Access keypair [AWS Documentaion](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html)
 
 * AWS CLI version 2.0 or higher 
 
-* GitHub account with created organization and issued OAuth application tokens
+* GitHub account with created organization and issued OAuth application tokens [GitHub Documentations](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app)
 
 * Terraform version 1.3.4 or higher 
 
 * Domain name 
 
-* Certification key and certificate (Ex. from [Let's encrypt](https://letsencrypt.org/)) for https build.
+* Certification key and certificate (Ex. from [Let's encrypt](https://letsencrypt.org/)) for **https** build.
  
 ### Refer to requred build's README for further details
 
