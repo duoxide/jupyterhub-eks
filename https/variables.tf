@@ -44,3 +44,49 @@ variable "cluster_name" {
   type        = string
   default     = "aleksejs-cluster"
 }
+
+variable "cert_file" {
+  description = "Name of .crt and .key files, w/o the extension"
+  type        = string
+  default     = "jh.dioxide.id.lv"
+}
+
+variable "aws_ak_id" {
+  description = "Enter AWS Access Key ID"
+  type        = string
+  sensitive   = true
+  validation {
+    condition     = length(var.aws_ak_id) > 0
+    error_message = "Cannot be empty"
+  }
+}
+
+variable "aws_ak_secret" {
+  description = "Enter AWS Access Key Secret"
+  type        = string
+  sensitive   = true
+  validation {
+    condition     = length(var.aws_ak_secret) > 0
+    error_message = "Cannot be empty"
+  }
+}
+
+variable "git_id" {
+  description = "Enter GitHub ID"
+  type        = string
+  sensitive   = true
+  validation {
+    condition     = length(var.git_id) > 0
+    error_message = "Cannot be empty"
+  }
+}
+
+variable "git_secret" {
+  description = "Enter GitHub secret"
+  type        = string
+  sensitive   = true
+  validation {
+    condition     = length(var.git_secret) > 0
+    error_message = "Cannot be empty"
+  }
+}

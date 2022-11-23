@@ -5,8 +5,8 @@ resource "kubernetes_secret" "jh" {
   }
 
   data = {
-    "tls.crt" = file("./cert/jh.dioxide.id.lv.cer")
-    "tls.key" = file("./cert/jh.dioxide.id.lv.key")
+    "tls.crt" = file("./cert/${var.cert_file}.cer")
+    "tls.key" = file("./cert/${var.cert_file}.key")
   }
 
   type = "kubernetes.io/tls"
