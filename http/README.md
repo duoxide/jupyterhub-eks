@@ -38,3 +38,4 @@
 * Default base JH docker image: `jupyterhub/k8s-singleuser-sample:2.0.1-0.dev.git.5892.ha729691b`
 
 * Latest Edited JH docker image in use `duoxide/jupyter-python-3.10.9:stable`
+    * `sudo` is enabled in this image for user `jovyan`, password is `jovyan`
