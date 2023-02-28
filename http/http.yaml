@@ -370,7 +370,7 @@ singleuser:
   lifecycleHooks: {}
   initContainers: []
   extraContainers: []
-  allowPrivilegeEscalation: false
+  allowPrivilegeEscalation: true
   uid: 1000
   fsGid: 100
   serviceAccountName:
@@ -390,8 +390,8 @@ singleuser:
       volumeNameTemplate: volume-{username}{servername}
       storageAccessModes: [ReadWriteOnce]
   image:
-    name: jupyterhub/k8s-singleuser-sample
-    tag: "2.0.1-0.dev.git.5892.ha729691b"
+    name: duoxide/jupyter-python-3.10.9
+    tag: "stable"
     pullPolicy:
     pullSecrets: []
   startTimeout: 300

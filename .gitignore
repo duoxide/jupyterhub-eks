@@ -3,6 +3,7 @@ https/.terraform/
 https/cert/
 
 http/.terraform.lock.hcl
+http/v.yaml
 https/.terraform.lock.hcl
 http/terraform.tfstate
 https/terraform.tfstate

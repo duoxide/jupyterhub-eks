@@ -19,7 +19,7 @@ module "eks" {
 
   eks_managed_node_groups = {
     one = {
-      name = "main-group"
+      name = "jh-group"
       # taints = []
 
       instance_types = ["t2.medium"]
@@ -39,7 +39,7 @@ module "eks" {
         aws_security_group.allow-ssh.id
       ]
       tags = {
-        "k8s.io/cluster-autoscaler/aleksejs-cluster"        = "true",
+        "k8s.io/cluster-autoscaler/jh-cluster"              = "true",
         "k8s.io/cluster-autoscaler/enabled"                 = "true",
         "k8s.io/cluster-autoscaler/node-template/label/meh" = "meh"
       }

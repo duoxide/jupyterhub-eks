@@ -25,9 +25,9 @@ output "elb_zid" {
 }
 
 output "zone_rec" {
-  value = aws_route53_zone.aleksejs.name_servers
+  value = aws_route53_zone.jh.name_servers
 }
 
 output "zone_id" {
-  value = aws_route53_zone.aleksejs.zone_id
+  value = aws_route53_zone.jh.zone_id
 }

@@ -307,7 +307,7 @@ proxy:
   labels: {}
   https:
     enabled: true
-    type: secret
+    type: offload
     #type: letsencrypt, manual, offload, secret
     letsencrypt:
       contactEmail:

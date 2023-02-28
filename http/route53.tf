@@ -1,14 +1,14 @@
 data "aws_elb_hosted_zone_id" "main" {}
 
-resource "aws_route53_zone" "aleksejs" {
+resource "aws_route53_zone" "jh" {
   name = var.hosted_zone
 }
 
 resource "aws_route53_record" "www" {
-  zone_id    = aws_route53_zone.aleksejs.zone_id
+  zone_id    = aws_route53_zone.jh.zone_id
   name       = var.a_record
   type       = "A"
-  depends_on = [aws_route53_zone.aleksejs, helm_release.jupyterhub]
+  depends_on = [aws_route53_zone.jh, helm_release.jupyterhub]
 
   alias {
     name                   = data.kubernetes_service.lb_dns.status[0].load_balancer[0].ingress[0].hostname
@@ -17,12 +17,12 @@ resource "aws_route53_record" "www" {
   }
 }
 
-resource "aws_route53_record" "dns_challenge" {
-  zone_id    = aws_route53_zone.aleksejs.zone_id
+/* resource "aws_route53_record" "dns_challenge" {
+  zone_id    = aws_route53_zone.jh.zone_id
   name       = var.txt_record
   type       = "TXT"
   ttl        = 300
   records    = [var.txt_record_value]
-  depends_on = [aws_route53_zone.aleksejs, helm_release.jupyterhub]
+  depends_on = [aws_route53_zone.jh, helm_release.jupyterhub]
 
-}
+} */

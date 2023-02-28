@@ -19,7 +19,7 @@ module "eks" {
 
   eks_managed_node_groups = {
     one = {
-      name = "main-group"
+      name = "jh-group"
       # taints = []
 
       instance_types = ["t2.medium"]

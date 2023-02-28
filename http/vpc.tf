@@ -6,7 +6,7 @@ resource "aws_vpc" "main" {
   enable_dns_hostnames = true
   instance_tenancy     = "default"
   tags = {
-    Name = "alex-main"
+    Name = "jh-main"
   }
 }
 
@@ -20,7 +20,7 @@ resource "aws_subnet" "main-public-1" {
   map_public_ip_on_launch = true
   availability_zone       = var.availability_zones[count.index]
   tags = {
-    Name = "alex-main-public-1a"
+    Name = "jh-main-public-1a"
   }
 }
 
@@ -33,7 +33,7 @@ resource "aws_subnet" "main-private-1" {
   #can be var
   availability_zone = "eu-central-1a"
   tags = {
-    Name = "alex-main-private-1"
+    Name = "jh-main-private-1"
   }
 }
 
@@ -41,7 +41,7 @@ resource "aws_subnet" "main-private-1" {
 resource "aws_internet_gateway" "main-gw" {
   vpc_id = aws_vpc.main.id
   tags = {
-    Name = "alex-main-igw"
+    Name = "jh-main-igw"
   }
 }
 
@@ -54,7 +54,7 @@ resource "aws_route_table" "main-public-rt" {
     gateway_id = aws_internet_gateway.main-gw.id
   }
   tags = {
-    Name = "alex-main-public-rt-1"
+    Name = "jh-main-public-rt-1"
   }
 }
 
